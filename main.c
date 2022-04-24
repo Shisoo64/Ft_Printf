@@ -19,27 +19,6 @@ int	ft_putchar(char c)
 	return (1);
 }
 
-int	ft_putnbr(int nb)
-{
-        unsigned int    buf;
-	static int	len;
-
-        buf = nb;
-        if (nb < 0)
-        {
-                buf = -buf;
-                write(1, "-", 1);
-        }
-        if (buf <= 9)
-		len += ft_putchar(buf + '0');
-	if (buf > 9)
-	{
-		ft_putnbr(buf / 10);
-		ft_putnbr(buf % 10);
-	}
-	return (len);
-}
-
 int	ft_putnbr_base(long nb, char *base)
 {
 	unsigned int    buf;
