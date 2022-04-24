@@ -21,23 +21,21 @@ int	ft_putchar(char c)
 
 int	ft_putnbr_base(long nb, char *base)
 {
-	unsigned int    buf;
 	static int	len;
 	unsigned int	baselen;
 
 	baselen = ft_strlen(base);
-	buf = nb;
 	if (nb < 0)
 	{
-		buf = -buf;
+		nb = -nb;
 		len += ft_putchar('-');
 	}
-	if (buf <= baselen - 1)
-		len += ft_putchar(base[buf]);
-	if (buf > baselen - 1)
+	if (nb <= baselen - 1)
+		len += ft_putchar(base[nb]);
+	if (nb > baselen - 1)
 	{
-		ft_putnbr_base(buf / baselen, base);
-		ft_putnbr_base(buf % baselen, base);
+		ft_putnbr_base(nb / baselen, base);
+		ft_putnbr_base(nb % baselen, base);
 	}
 	return (len);
 }
