@@ -3,14 +3,14 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-size_t  ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-        size_t  i;
+	size_t	i;
 
-        i = 0;
-        while (s[i++])
-                ;
-        return (--i);
+	i = 0;
+	while (s[i++])
+		;
+	return (--i);
 }
 
 int	ft_putchar(char c)
@@ -21,7 +21,7 @@ int	ft_putchar(char c)
 
 int	ft_putnbr_base(long long nb, char *base)
 {
-	int	len;
+	int		len;
 	unsigned int	baselen;
 
 	len = 0;
@@ -53,6 +53,22 @@ int	ft_putstr(char *str)
 	return (i);
 }
 
+int	ft_putnbr_p(unsigned long long nb)
+{
+	int	len;
+	char	*base;
+
+	len = 0;
+	base = "0123456789abcedf";
+	if (nb <= 15)
+		len += ft_putchar(base[nb]);
+	if (nb > 15)
+	{
+		len += ft_putnbr_p(nb / 16);
+		len += ft_putnbr_p(nb % 16);
+	}
+	return (len);
+}
 int	ft_putptr(unsigned long long ptr)
 {
 	int	len;
@@ -61,7 +77,7 @@ int	ft_putptr(unsigned long long ptr)
 		return (ft_putstr("(nil)"));
 	len = 0;
 	len += ft_putstr("0x");
-	len += ft_putnbr_base(ptr, "0123456789abcdef");
+	len += ft_putnbr_p(ptr);
 	return (len);
 }
 
@@ -83,9 +99,9 @@ int	ft_params(char format, va_list args)
 	if (format == 'u')
 		len += ft_putnbr_base(va_arg( args, unsigned int ), "0123456789");
 	if (format == 'x')
-		len += ft_putnbr_base((unsigned int)va_arg( args, int ), "0123456789abcdef");
+		len += ft_putnbr_base(va_arg( args, unsigned int ), "0123456789abcdef");
 	if (format == 'X')
-		len += ft_putnbr_base((unsigned int)va_arg( args, int ), "0123456789ABCDEF");
+		len += ft_putnbr_base(va_arg( args, unsigned int ), "0123456789ABCDEF");
 	if (format == '%')
                len += ft_putchar('%');
 	return (len);
