@@ -46,17 +46,19 @@ int	ft_putstr(char *str)
 	int	i;
 
 	i = -1;
+	if (!str)
+		return (ft_putstr("(null)"));
 	while (str[++i] != '\0' && str)
 		write(1, &str[i], 1);
 	return (i);
 }
 
-int	ft_putptr(unsigned long ptr)
+int	ft_putptr(unsigned long long ptr)
 {
 	int	len;
 
 	if (!ptr)
-		return (0);
+		return (ft_putstr("(nil)"));
 	len = 0;
 	len += ft_putstr("0x");
 	len += ft_putnbr_base(ptr, "0123456789abcdef");
@@ -73,7 +75,7 @@ int	ft_params(char format, va_list args)
 	if (format == 's')
 		len += ft_putstr(va_arg( args, char * ));
 	if (format == 'p')
-		len += ft_putptr(va_arg( args, unsigned long ));
+		len += ft_putptr(va_arg( args, unsigned long long ));
 	if (format == 'i')
 		len += ft_putnbr_base(va_arg( args, int ), "0123456789");
 	if (format == 'd')
