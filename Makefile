@@ -6,11 +6,12 @@
 #    By: rlaforge <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/18 16:20:40 by rlaforge          #+#    #+#              #
-#    Updated: 2022/04/25 20:56:17 by rlaforge         ###   ########.fr        #
+#    Updated: 2022/04/27 14:55:00 by rlaforge         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =	ft_printf.c
+SRCS =	ft_printf.c \
+	ft_printf_utils.c
 
 CC = gcc
 
