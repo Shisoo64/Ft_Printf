@@ -1,2 +1,3 @@
-# Ft_Printf
-Because putnbr and putstr aren’t enough
+# ft_printf🔢
+Because putnbr and putstr aren’t enough.
+Conversion : cspdiuxX%
