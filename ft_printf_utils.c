@@ -6,7 +6,7 @@
 /*   By: rlaforge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 14:30:02 by rlaforge          #+#    #+#             */
-/*   Updated: 2022/04/27 14:56:02 by rlaforge         ###   ########.fr       */
+/*   Updated: 2022/04/27 15:45:02 by rlaforge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,10 @@ int	ft_putstr(char *str)
 
 int	ft_putnbr_p(unsigned long long nb)
 {
-	int		len;
-	char	*base;
+	int			len;
+	const char	base[] = "0123456789abcdef";
 
 	len = 0;
-	base = "0123456789abcedf";
 	if (nb <= 15)
 		len += ft_putchar(base[nb]);
 	if (nb > 15)
