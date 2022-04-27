@@ -1,4 +1,4 @@
-# ft_printf🔢
+# 🔢ft_printf
 ### Because putnbr and putstr aren’t enough.
 recode of the prinft function.
 
